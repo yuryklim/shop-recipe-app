@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipes-list.component.css']
 })
 export class RecipesListComponent implements OnInit {
+  recipes = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
