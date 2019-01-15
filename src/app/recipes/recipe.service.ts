@@ -13,4 +13,8 @@ export class RecipeService {
       '/assets/17/34/2048x1024/landscape-' +
       '1503418862-chicken-thighs-delish.jpg?resize=1200:*')
   ];
+
+  getRecipes() {
+    return this.recipes.slice();
+  }
 }
