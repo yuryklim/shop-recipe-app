@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {RecipeService} from '../recipes/recipe.service';
 import {Recipe} from '../recipes/recipe.model';
+import {map} from 'rxjs/operators';
 
 @Injectable()
 export class DataStorageService {
@@ -15,10 +16,20 @@ export class DataStorageService {
   }
 
   getRecipes() {
-    this.http.get('https://recipe-book-27421.firebaseio.com/recipes.json')
+    this.http.get('https://recipe-book-27421.firebaseio.com/recipes.json').pipe(map(
+      (response: Response) => {
+        const recipes: Recipe[] = response.json();
+        for (let recipe of recipes) {
+          if (!recipe['ingredients']) {
+            console.log(recipe);
+            recipe['ingredients'] = [];
+          }
+        }
+        return recipes;
+      }
+    ))
       .subscribe(
-        (response: Response) => {
-          const recipes: Recipe[] = response.json();
+        (recipes: Recipe[]) => {
           this.recipeService.setRecipes(recipes);
         }
       );
