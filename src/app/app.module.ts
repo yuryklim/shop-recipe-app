@@ -15,8 +15,8 @@ import {SignupComponent} from './auth/signup/signup.component';
 import {SigninComponent} from './auth/signin/signin.component';
 import {AuthService} from './auth/auth.service';
 import {AuthGuard} from './auth/auth-guard.service';
-import {DropdownDirective} from './shared/dropdown.directive';
 import {RecipesModule} from './recipes/recipes.module';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -26,14 +26,14 @@ import {RecipesModule} from './recipes/recipes.module';
     ShoppingEditComponent,
     SignupComponent,
     SigninComponent,
-    DropdownDirective
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     RecipesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [ShoppingListService, RecipeService, DataStorageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
