@@ -46,7 +46,7 @@ export function shoppingListReducer(
         ...state,
         ingredients: ingredients,
         editedIngredient: null,
-        edetedIngredientIndex: -1
+        editedIngredientIndex: -1
       };
     case ShoppingListActions.DELETE_INGREDIENT:
       const oldIngredients = [...state.ingredients];
@@ -55,7 +55,7 @@ export function shoppingListReducer(
         ...state,
         ingredients: oldIngredients,
         editedIngredient: null,
-        edetedIngredientIndex: -1
+        editedIngredientIndex: -1
       };
     case ShoppingListActions.START_EDIT:
       const editedIngredient = {...state.ingredients[action.payload]};
