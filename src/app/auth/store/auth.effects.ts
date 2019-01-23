@@ -28,6 +28,7 @@ export class AuthEffects {
         }
     )).pipe(mergeMap(
         (token: string) => {
+            this.router.navigate(['recipes']);
           return [
             {
                 type: AuthActions.SIGNUP
