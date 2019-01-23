@@ -21,6 +21,6 @@ const recipesRoutes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class RecipesRoutingModule {
 
+export class RecipesRoutingModule {
 }

@@ -4,6 +4,7 @@ import {Recipe} from '../recipes/recipe.model';
 import {map} from 'rxjs/operators';
 import {AuthService} from '../auth/auth.service';
 import {HttpClient, HttpHeaders, HttpParams, HttpRequest} from '@angular/common/http';
+
 @Injectable()
 export class DataStorageService {
   constructor(private httpClient: HttpClient,
@@ -25,7 +26,7 @@ export class DataStorageService {
       'https://recipe-book-27421.firebaseio.com/recipes.json',
       this.recipeService.getRecipes(),
       {reportProgress: true});
-    return this.httpClient.request(req);
+        return this.httpClient.request(req);
   }
 
   getRecipes() {

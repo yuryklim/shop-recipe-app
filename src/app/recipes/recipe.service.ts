@@ -1,5 +1,4 @@
 import {Recipe} from './recipe.model';
-import {Injectable} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
 import {Subject} from 'rxjs/Subject';
 
@@ -21,10 +20,6 @@ export class RecipeService {
         new Ingredient('Meat', 1)
       ])
   ];
-
-  constructor() {
-
-  }
 
   getRecipes() {
     return this.recipes.slice();
