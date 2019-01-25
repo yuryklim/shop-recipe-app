@@ -25,17 +25,17 @@ export class DataStorageService {
       'https://recipe-book-27421.firebaseio.com/recipes.json',
       {observe: 'body', responseType: 'json'})
       .pipe(map(
-      (recipes) => {
-        console.log(recipes);
-        for (let recipe of recipes) {
-          if (!recipe['ingredients']) {
-            console.log(recipe);
-            recipe['ingredients'] = [];
+        (recipes) => {
+          console.log(recipes);
+          for (let recipe of recipes) {
+            if (!recipe['ingredients']) {
+              console.log(recipe);
+              recipe['ingredients'] = [];
+            }
           }
+          return recipes;
         }
-        return recipes;
-      }
-    ))
+      ))
       .subscribe(
         (recipes: Recipe[]) => {
           this.recipeService.setRecipes(recipes);
