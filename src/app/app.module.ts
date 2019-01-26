@@ -21,7 +21,7 @@ import {StoreDevtoolsModule} from '@ngrx/store-devtools';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: "my-app"}),
     HttpClientModule,
     AppRoutingModule,
     SharedModule,
