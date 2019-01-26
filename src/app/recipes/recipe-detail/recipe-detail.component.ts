@@ -2,7 +2,7 @@ import {Component, Injectable, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Store} from '@ngrx/store';
 import * as ShoppingListActions from '../../shopping-list/shopping-list.actions';
-import {Observable} from 'rxjs/Observable';
+import {Observable} from 'rxjs';
 import * as fromRecipe from '../store/recipe.reducers';
 import {take} from 'rxjs/operators';
 import * as RecipeActions from '../store/recipe.actions';

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import * as AuthActions from './auth.actions';
 import { map, switchMap, mergeMap, tap } from 'rxjs/operators';
 import * as firebase from 'firebase';
-import { fromPromise } from 'rxjs/observable/fromPromise';
+import { from } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class AuthEffects {
     }
   )).pipe(switchMap(
     (authData: { username: string, password: string }) => {
-      return fromPromise(
+      return from(
         firebase.auth()
           .createUserWithEmailAndPassword(
             authData.username,
@@ -24,7 +24,7 @@ export class AuthEffects {
     }
   )).pipe(switchMap(
     () => {
-      return fromPromise(firebase.auth().currentUser.getIdToken());
+      return from(firebase.auth().currentUser.getIdToken());
     }
   )).pipe(mergeMap(
     (token: string) => {
@@ -50,7 +50,7 @@ export class AuthEffects {
       ),
       switchMap(
         (authData: { username: string, password: string; }) => {
-          return fromPromise(
+          return from(
             firebase.auth()
               .signInWithEmailAndPassword(
                 authData.username,
@@ -60,7 +60,7 @@ export class AuthEffects {
       ),
       switchMap(
         () => {
-          return fromPromise(firebase.auth().currentUser.getIdToken());
+          return from(firebase.auth().currentUser.getIdToken());
         }
       ),
       mergeMap(
